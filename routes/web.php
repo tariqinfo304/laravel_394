@@ -195,3 +195,14 @@ Route::resource("crud","CRUDController");
 //Partial Resource Routes
 //Route::resource("crud","CRUDController")->only(['index','destroy']);
 //Route::resource("crud","CRUDController")->except(['destroy']);
+
+
+
+
+////////////////////////////////
+////////////////// View ///////
+///////////////////////////////
+
+Route::get("view_1","SimpleCotroller@simple");
+Route::get("view_parent","SimpleCotroller@parent");
+Route::get("view_child","SimpleCotroller@child");

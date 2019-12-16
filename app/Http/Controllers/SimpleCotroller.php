@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class SimpleCotroller extends Controller
+{
+    function simple()
+    {
+    	$arr= [1,2,3,4,5];
+    	return view("lec_14_1",["data"=>"evs","arr" => $arr]);
+    }
+
+    function parent()
+    {
+    	return view("lec_14_parent",["title"=>"Home","content"=>"Home body content"]);
+    }
+
+    function child()
+    {
+    	return view("lec_14_child",
+    			[
+    			"title"=>"Child",
+    			"content"=>"Child body content",
+    			"error" => "Database Error",
+    			"heading" => "Database"]);
+    }
+}
