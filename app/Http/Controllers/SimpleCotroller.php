@@ -19,8 +19,23 @@ class SimpleCotroller extends Controller
 
     function child()
     {
+
+        $arr = [
+            "name" => "evs",
+            "id"    => 123,
+            22,
+            23,
+            2
+        ];
+
+
+
     	return view("lec_14_child",
     			[
+                "boolean" => true,
+                "name" => "Child View",
+                "users" => [1,2,3],
+                "json_arr" => json_encode($arr), 
     			"title"=>"Child",
     			"content"=>"Child body content",
     			"error" => "Database Error",
