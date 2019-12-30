@@ -267,11 +267,6 @@ When looping, a $loop variable will be available inside of your loop. This varia
         <hr/>
 
 
-
-
-
-
-
 @endsection
 
 

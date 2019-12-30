@@ -206,3 +206,11 @@ Route::resource("crud","CRUDController");
 Route::get("view_1","SimpleCotroller@simple");
 Route::get("view_parent","SimpleCotroller@parent");
 Route::get("view_child","SimpleCotroller@child");
+
+
+
+///////////////////////////////////////
+//////////////////// DB ///////////////
+///////////////////////////////////////
+
+Route::get("db","DBController@db_index");
