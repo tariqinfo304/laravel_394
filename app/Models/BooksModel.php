@@ -8,5 +8,6 @@ class BooksModel extends Model
 {
      protected $table = "books";
      protected $primaryKey = "books_id";
-     
+
+    
 }

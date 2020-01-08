@@ -73,6 +73,28 @@ class ORMController extends Controller
 		var_dump($data->delete());
 		*/
 
+
+
+
+        //print_r($orm);
+
+       /* 
+        ///////////DEstroy method ( delete record from table without fetching  from DB )
+        $res = UsersModel::destroy(1);
+        var_dump($res);
+    */
+
+        //Soft Deleting
+
+        $data = $orm->find(2);
+        //soft delete beacuse of trait use in orm model
+        //var_dump($data->delete());
+        
+
+        //permanent remove frmo db
+        //$data->forceDelete()
+		/*
+
 		//Class Work done by Students
 		//06-Jan-2020
 
@@ -88,6 +110,7 @@ class ORMController extends Controller
 
 
 		//end 06-Jan-2020 //
+		*/
 
 
 

@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+//for soft delete
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 /*
 /////////////////////
 	Table Name
@@ -48,6 +51,8 @@ If you would like to define the default values for some of your model's attribut
 class UsersModel extends Model
 {
 	
+	use SoftDeletes;
+
     protected $table = "users";
     //protected $table = "test";
     //protected $primaryKey = "test_id";
