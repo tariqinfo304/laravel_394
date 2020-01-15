@@ -41,6 +41,7 @@ class AdvanceDBController extends Controller
 		*/
     	
 
+    	/*
     	//Many-To-Many
     	$res = DB::table("books")
     			->join("book_std","books.book_id","=","book_std.book_id")
@@ -57,6 +58,7 @@ class AdvanceDBController extends Controller
 
 
     	dd($res);
+    	*/
 
     }
 }

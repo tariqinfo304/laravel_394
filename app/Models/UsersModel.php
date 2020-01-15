@@ -51,7 +51,7 @@ If you would like to define the default values for some of your model's attribut
 class UsersModel extends Model
 {
 	
-	use SoftDeletes;
+	//use SoftDeletes;
 
     protected $table = "users";
     //protected $table = "test";
@@ -63,6 +63,18 @@ class UsersModel extends Model
 	 public $timestamps = false;
 
 
+
+
+	function address()
+    {
+    	//return $this->hasOne('App\Models\UserAddressModel', 'foreign_key', 'local_key');
+    	return $this->hasOne('App\Models\UserAddressModel',"user_id");
+    }
+
+    function block_history()
+    {
+    	return $this->hasMany('App\Models\UserBlockModel',"user_id");
+    }
 /*
 	// const CREATED_AT = 'creation_date';
  	// const UPDATED_AT = 'last_update';
