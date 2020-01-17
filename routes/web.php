@@ -241,3 +241,6 @@ Route::get("advance_orm","AdvanceORMController@orm");
 ///////////////////////////////////////
 
 Route::get("shop","ShopController@index");
+Route::get("show_shop","ShopController@shop_page");
+Route::get("shop_edit/{id}","ShopController@shop_edit");
+Route::get("shop_delete/{id}","ShopController@shop_delete");
