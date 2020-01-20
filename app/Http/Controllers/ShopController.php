@@ -23,11 +23,55 @@ class ShopController extends Controller
 
     function shop_edit(int $id)
     {
-    	echo "Edit : $id";
+        $shop = ShopModel::find($id);
+
+    	return view("shop/shop_edit",["shop" => $shop]);
     }
 
     function shop_delete(int $id)
     {
-    	echo "Remove : $id";
+    	 $shop = new ShopModel();
+         $shop = $shop->find($id);
+         $shop->delete();
+
+         return redirect("show_shop");
+    }
+
+    function shop_update(Request $req)
+    {
+        $req->id = (int)$req->id;
+        if(!empty($req->id) && gettype($req->id) == "integer")
+        {
+                $shop = new ShopModel();
+                $shop = $shop->find($req->id);
+
+                $shop->name = $req->name;
+                $shop->owner_name = $req->owner_name;
+                $shop->save();
+        }
+        return redirect("show_shop");
+    }
+
+    function shop_add_form()
+    {
+        return view("shop/shop_add");
+    }
+
+
+    function shop_save(Request $req)
+    {
+         $shop = new ShopModel();
+
+         $shop->name = $req->name;
+         $shop->owner_name = $req->owner_name;
+         $shop->address = $req->address;
+         $shop->opening_time = $req->opening_time;
+         $shop->closing_time = $req->closing_time;
+
+
+         $shop->save();
+
+         return redirect("show_shop");
+
     }
 }

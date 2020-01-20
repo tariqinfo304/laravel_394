@@ -36,6 +36,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        "shop_group" => [
+
+            \App\Http\Middleware\ShopMiddleware::class
+        ],
 
         'api' => [
             'throttle:60,1',
@@ -61,6 +65,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+
+        //user-defined
+        'shop'     => \App\Http\Middleware\ShopMiddleware::class
     ];
 
     /**
