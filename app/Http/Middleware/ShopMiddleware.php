@@ -15,7 +15,7 @@ class ShopMiddleware
      */
     public function handle($request, Closure $next)
     {
-        echo "Hello Shop Middleware";
+      //  echo "Hello Shop Middleware";
         /*
         //pre-middleware
         echo "Hello Shop Middleware";
