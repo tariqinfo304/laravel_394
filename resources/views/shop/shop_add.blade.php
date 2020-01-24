@@ -16,13 +16,28 @@
 	<div class="container">
 
 		<div class="row">
-			
+			@php //print_r($errors); @endphp
+
+			@if ($errors->any())
+			    <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
+
 			<form method="POST" action="{{ url('shop_add') }}">
 					
 					@csrf()
 					<div class="form-group">
 						<label>Name</label>
 					<input class="form-control" name="name" type="text"/>
+					@error('name')
+					    <div class="alert alert-danger">{{ $message }}</div>
+					@enderror
+					
 					</div>
 
 					<div class="form-group">

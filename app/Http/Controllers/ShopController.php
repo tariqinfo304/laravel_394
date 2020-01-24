@@ -60,6 +60,17 @@ class ShopController extends Controller
 
     function shop_save(Request $req)
     {
+
+
+
+        $validatedData = $req->validate([
+
+            'name' => 'required|min:10',
+            'address' => 'required',
+        ]);
+
+
+
          $shop = new ShopModel();
 
          $shop->name = $req->name;
