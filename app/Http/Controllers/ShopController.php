@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ShopModel;
+use App\Http\Requests\AddSopRequest;
+use Illuminate\Support\Facades\Validator;
+
 
 class ShopController extends Controller
 {
@@ -57,17 +60,81 @@ class ShopController extends Controller
         return view("shop/shop_add");
     }
 
-
-    function shop_save(Request $req)
+    //Request 
+    //AddSopRequest
+    function shop_save(AddSopRequest $request)
     {
 
 
+        /*
+       // dd($request->file_attach);
 
-        $validatedData = $req->validate([
+        //file uploading//
+
+              
+                $file = $request->file('file_attach');
+                    
+                //dd( $file);
+
+                //it will create symbolic link in public folder
+                //php artisan storage:link
+
+
+            //    echo $request->file_attach->path();
+                //echo "<br/>";
+              //  var_dump($request->file_attach->extension()). "<br/>";
+        
+             //   die("ok");
+                
+               // $path = $request->file_attach->store("images");
+
+                $ext =  $request->file_attach->extension();
+                $name = "file_".rand().".".$ext;
+\
+//it will save file in storage but can access now 
+        //$path = $request->file_attach->storeAs("images",$name ,"public");
+          //      die( $path);
+
+
+            //it will return full path of file
+                echo asset('storage/images/file_653096828.jpeg');
+    
+
+
+        */
+
+
+        //1 way//
+        //validation
+                /*
+        $validatedData = $request->validate([
 
             'name' => 'required|min:10',
             'address' => 'required',
         ]);
+        */
+        
+        //2 way to check in RQuest fodler anme of this method validation//
+      // $res = $request->validated();
+        //return validated values 
+        // dd($res);
+
+        /*
+
+        //Manually Creating Validators
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:5',
+            'address' => "required|max:5"
+        ]);
+
+
+        if ($validator->fails()) {
+            return redirect('shop_add')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        */
+
 
 
 
@@ -85,4 +152,6 @@ class ShopController extends Controller
          return redirect("show_shop");
 
     }
+
+
 }

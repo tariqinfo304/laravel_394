@@ -35,6 +35,16 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+
+	
+	<!-- jQuery Plugins -->
+	<script src='{{ asset("js/jquery.min.js") }}'></script>
+	<script src='{{ asset("js/bootstrap.min.js") }}'></script>
+	<script src='{{ asset("js/slick.min.js") }}'></script>
+	<script src='{{ asset("js/nouislider.min.js") }}'></script>
+	<script src='{{ asset("js/jquery.zoom.min.js") }}'></script>
+	<script src='{{ asset("js/main.js") }}'></script>
+
 </head>
 
 <body>
@@ -1522,15 +1532,6 @@
 		</footer>
 
 	@show
-
-
-	<!-- jQuery Plugins -->
-	<script src='{{ asset("js/jquery.min.js") }}'></script>
-	<script src='{{ asset("js/bootstrap.min.js") }}'></script>
-	<script src='{{ asset("js/slick.min.js") }}'></script>
-	<script src='{{ asset("js/nouislider.min.js") }}'></script>
-	<script src='{{ asset("js/jquery.zoom.min.js") }}'></script>
-	<script src='{{ asset("js/main.js") }}'></script>
 
 </body>
 
