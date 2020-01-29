@@ -121,15 +121,25 @@
 									<div class="header-btns-icon">
 										<i class="fa fa-user-o"></i>
 									</div>
-									<strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
+									<strong class="text-uppercase">{{ session("username") }} <i class="fa fa-caret-down"></i></strong>
 								</div>
-								<a href="#" class="text-uppercase">Login</a> / <a href="#" class="text-uppercase">Join</a>
+
+								@if(!session("username"))
+								<a href="{{ url('login') }}" class="text-uppercase">Login</a>
+								@endif
+								 / <a href="#" class="text-uppercase">Join</a>
 								<ul class="custom-menu">
 									<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
 									<li><a href="#"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
 									<li><a href="#"><i class="fa fa-exchange"></i> Compare</a></li>
 									<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
-									<li><a href="#"><i class="fa fa-unlock-alt"></i> Login</a></li>
+									@if(!session("username"))
+										<li><a href="{{ url('login') }}"><i class="fa fa-unlock-alt"></i> Login</a></li>
+									@endif
+									
+									@if(session("username"))
+										<li><a href="{{ url('logout') }}"><i class="fa fa-unlock-alt"></i> Logout</a></li>
+									@endif
 									<li><a href="#"><i class="fa fa-user-plus"></i> Create An Account</a></li>
 								</ul>
 							</li>
@@ -401,8 +411,12 @@
 						<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
 						<ul class="menu-list">
 							<li><a href="{{ url('shop') }}">Home</a></li>
-							<li><a href="{{ url('/show_shop') }}">Shop</a></li>
-							<li><a href="{{ url('/shop_add') }}">Add Shop</a></li>
+
+							@if(session("username"))
+								<li><a href="{{ url('/show_shop') }}">Shop</a></li>
+								<li><a href="{{ url('/shop_add') }}">Add Shop</a></li>
+							@endif
+
 							<li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women <i class="fa fa-caret-down"></i></a>
 								<div class="custom-menu">
 									<div class="row">

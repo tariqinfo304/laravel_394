@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class ShopController extends Controller
 {
-    function index()
+    function index(Request $req)
     {
+       // dd(session()->all());
+       // dd($req->session()->get("username"));
+       //  dd($req->session()->all());
     	return view("shop/index");
     }
 

@@ -250,10 +250,8 @@ Route::get("shop","ShopController@index");
 
 //Route::get("show_shop","ShopController@shop_page");
 
-
+/*
 Route::group(['middleware' => ['shop_group']], function () {
-
-
 
 	Route::get("show_shop","ShopController@shop_page");
 	Route::get("shop_edit/{id}","ShopController@shop_edit");
@@ -266,6 +264,7 @@ Route::group(['middleware' => ['shop_group']], function () {
 	Route::post("shop_add","ShopController@shop_save");
 
 });
+*/
 
 /////////////////////////////////////////////////////
 ////////////// Middleware ///////////////////////////
@@ -276,4 +275,28 @@ Route::get("show_shop","ShopController@shop_page")
 	//->middleware('first', 'second');
 
 */
+
+////////////////////////////////////////////////////////////
+////////////////////////// Session and hashing and encryption
+/////////////////////////////////////////////////////////////////
+
+Route::get("login","LoginController@login");
+Route::post("login","LoginController@login_validate");
+
+
+Route::group(['middleware' => ['shop_group']], function () {
+
+	Route::get("show_shop","ShopController@shop_page");
+	Route::get("shop_edit/{id}","ShopController@shop_edit");
+	Route::post("shop_edit","ShopController@shop_update");
+
+	Route::get("shop_delete/{id}","ShopController@shop_delete");
+
+
+	Route::get("shop_add","ShopController@shop_add_form");
+	Route::post("shop_add","ShopController@shop_save");
+
+	Route::get("logout","LoginController@logout");
+});
+
 

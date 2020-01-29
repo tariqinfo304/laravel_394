@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use DB;
 
 class ShopMiddleware
 {
@@ -15,6 +16,38 @@ class ShopMiddleware
      */
     public function handle($request, Closure $next)
     {
+
+
+
+        if(session()->has("username"))
+        {
+
+            //it will check right for route to spacific user id
+            $rights = DB::table("users as  u")
+            ->join("user_right as us","u.id","=","us.user_id")
+            ->join("rights as r","us.right_id","=","r.id")
+            ->where("u.id",session()->get("id"))
+            ->get();
+
+            $route =  $request->path();
+            $route = explode("/", $route);
+            if(!empty($route) && isset($route[0]))
+            {
+                $route = $route[0];
+            }
+            $is = 0;
+            foreach ($rights as $row) {
+                if($route == $row->right)
+                {
+                    return $next($request);
+                }
+            }
+             return redirect("shop");
+        }
+        else
+        {
+            return redirect("login");
+        }
       //  echo "Hello Shop Middleware";
         /*
         //pre-middleware
@@ -30,6 +63,6 @@ class ShopMiddleware
         // echo "Hello Shop Middleware";
         */
 
-        return $next($request);
+       
     }
 }
