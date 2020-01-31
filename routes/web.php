@@ -300,3 +300,8 @@ Route::group(['middleware' => ['shop_group']], function () {
 });
 
 
+/////////////////////////
+///////// Built-in Auth /////////
+///////////////////////
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
