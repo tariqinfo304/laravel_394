@@ -68,7 +68,8 @@ class Kernel extends HttpKernel
 
 
         //user-defined
-        'shop'     => \App\Http\Middleware\ShopMiddleware::class
+        'shop'     => \App\Http\Middleware\ShopMiddleware::class,
+        'api_session' => \App\Http\Middleware\APISessionMiddleware::class
     ];
 
     /**

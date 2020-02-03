@@ -299,9 +299,18 @@ Route::group(['middleware' => ['shop_group']], function () {
 	Route::get("logout","LoginController@logout");
 });
 
-
+/*
 /////////////////////////
 ///////// Built-in Auth /////////
 ///////////////////////
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+*/
+
+
+/////////////////////////////
+////////// API  /////////////
+////////////////////////////
+
+Route::get("api","APIController@show");
